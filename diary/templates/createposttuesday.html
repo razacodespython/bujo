@@ -55,7 +55,6 @@ body {
           <div class="row row-first h-50 ">
             
         
-            
             <div class="col">
               <div class="card h-100">
                 <div class="card-header text-dark bg-light text-center text-uppercase">
@@ -63,17 +62,16 @@ body {
                 </div>
                   <div class="card-body">
                   
-                    <form action="/createpost/adjustpost/" method="post" class="card-text w-100 h-100 text-dark bg-light">
-                      {% csrf_token %}
-                      {{ form.day }}
-                      {{ form.text }}
-                      
-                  
-                   
+                    <p class="card-text w-100 h-100" style="border: none; resize: none;">
+                        {% for bujodb in monday %}
+                        {{ bujodb.text }}
+                        {% endfor %}
+
+                    </p>
                   </div>
                   
-                    <input type="submit" value="Submit" class="text-dark btn btn-secondary card-footer bg-light">
-                  </form>
+                    <a href="{% url 'createpost' %}" class="text-dark btn btn-secondary card-footer bg-light">Change the Past</a>
+                  
               </div>
             </div>
         
@@ -84,17 +82,20 @@ body {
                   Tuesday
                  </div>
                   <div class="card-body">
-                    <p class="card-text w-100 h-100" style="border: none; resize: none;">
-                      {% for bujodb in tuesday %}
-                        {{ bujodb.text }}
-                        {% endfor %}
-                    </p>
-                    </div>
+                    <form action="/createposttuesday/adjustpost/" method="post" class="card-text w-100 h-100 text-dark bg-light">
+                      {% csrf_token %}
+                      {{ form.day }}
+                      {{ form.text }}
+                      
+                  
+                   
+                  </div>
                     
-                    <a href="{% url 'createposttuesday' %}" class="block card-footer text-white btn btn-dark btn-outline-secondary bg-dark">Change the Past</a>
+                    <input type="submit" value="Submit"  class="block card-footer text-white btn btn-dark btn-outline-secondary bg-dark">
                     
               </div>
             </div>
+        
         
         
             <div class="col">

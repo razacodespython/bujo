@@ -5,7 +5,7 @@ class bujoform(forms.ModelForm):
 
     class Meta:
         model = bujodb
-        fields = ('text',)
+        fields = ('text','day')
 
         widgets = {
             'text': forms.Textarea(attrs={
@@ -13,4 +13,8 @@ class bujoform(forms.ModelForm):
                 'style':'border: none; resize: none;',
                 
                 }),
+            'day': forms.Select(attrs={
+                'class': 'text-dark bg-light',
+                'style':'border: none; resize: none;',
+            })
         }
